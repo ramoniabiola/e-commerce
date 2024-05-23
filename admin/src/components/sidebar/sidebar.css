@@ -1,0 +1,54 @@
+.sidebar {
+    flex: 1;
+    height: calc(120vh - 50px);
+    position: sticky;
+    top: 50px;
+    background-color: rgb(255, 248, 248);
+}
+
+.sidebarWrapper {
+    padding: 20px;
+    color: #595656;
+}
+
+.sidebarMenu {
+    margin-bottom: 12px;
+}
+
+.sidebarTitle {
+    font-size: 15px;
+    color: lightgray;
+}
+
+.sidebarList {
+    list-style: none;
+    padding: 8px;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.sidebarListItem {
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.sidebarListItem.active,.sidebarListItem:hover {
+    background-color:rgb(247, 186, 186);
+}
+
+.sidebarIcons {
+    margin-right: 8px;
+    font-size: 20px !important;
+}
+
+.sidebarIcons.naira {
+    font-size: 16px !important;
+}
+

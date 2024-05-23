@@ -1,0 +1,123 @@
+.login {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 248, 248);
+}
+
+.loginTopbar {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginLogo {
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 50px;
+}
+
+.loginLogo span {
+  color:  rgb(138, 22, 22);
+}
+
+
+.loginForm {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 28%;
+  height: 45%;
+  margin: 120px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.05);
+}
+
+.loginTitle {
+  text-align: center;
+}
+
+
+.loginForm > label,.loginInput {
+    display: block;
+}
+
+.loginInput {
+    padding: 8px;
+    min-width: 40%;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.loginButton {
+  background: #d61c1c;
+  border: 0;
+  color: #fff;
+  padding: 8px;
+  font-weight: bold;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 16px;
+  width: 100%;
+   
+}
+
+
+.loginButton:hover {
+  background-color: #a80d0d;
+
+}
+
+.loginForgot{
+  display: block;
+  margin-top: 20px;
+  font-size: small;
+}
+
+
+.loginForgot a {
+  text-decoration: none;
+  color: #d61c1c;
+}
+
+
+
+.loginForgot a:hover {
+  text-decoration: underline;
+  color: #d61c1c;
+}
+
+.loginError{
+  margin-top: 5px;
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid red;
+  border-radius: 4px;
+  margin: 20px 0;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+

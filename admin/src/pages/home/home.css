@@ -1,0 +1,14 @@
+.home {
+    flex: 4;
+}
+
+.charts {
+    display: flex;
+    margin: 10px;
+}
+
+.homeWidgets {
+    display: flex;
+    margin: 10px;
+}
+

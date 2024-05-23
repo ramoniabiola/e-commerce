@@ -1,0 +1,164 @@
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import "./productlist.css";
+import { DataGrid } from '@mui/x-data-grid';
+import { DeleteOutline } from "@mui/icons-material";
+import {Link} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useDeleteProduct, useGetProducts } from '../../redux/apiCalls';
+import { Alert, CircularProgress } from "@mui/material";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+
+
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="down" ref={ref} {...props} />;
+});
+
+
+
+const ProductList = () => {
+  const dispatch = useDispatch();
+  const myProducts = useSelector((state) => state.product.products);
+  const { getProducts, error } = useGetProducts();
+  const [open, setOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null); // Initialize with null or appropriate initial value
+  const { deleteProduct, deleteError, success, loadingSpinner } = useDeleteProduct();
+
+
+  
+  const handleClickOpen = (product) => {
+    setOpen(true);
+    setSelectedProduct(product) // Set the selected product when the delete button is clicked
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
+  
+  useEffect(() => {
+    const fetchProducts = async () => {
+      await getProducts(dispatch);
+    };
+  
+    fetchProducts();
+  }, []);
+
+
+  
+  const handleDelete = () => {
+    if (selectedProduct) {
+      deleteProduct(selectedProduct._id, dispatch);
+      setOpen(false);
+    }
+};
+
+
+
+  const columns = [
+    { field: '_id', headerName: 'ID', width: 250 },
+    { field: 'product', headerName: 'Product', width: 250, renderCell: (params) => {
+      return (
+        <div className='productListItem'>
+          <img className='productListImg' src={params.row.img} alt="" />
+          {params.row.title}
+        </div>
+      )
+    }},
+    { field: 'inStock', headerName: ' In-stock', width: 180},
+    {
+      field: 'price',
+      headerName: 'Price',
+      width: 160,
+    },
+    {
+      field: 'action',
+      headerName: 'Actions',
+      width: 200,
+      renderCell: (params) => { 
+        return (
+          <> 
+            <Link to={"/product/"+params.row._id}>
+              <button className='productListEdit'>Edit</button>
+            </Link>
+            <DeleteOutline 
+              className='productListDelete' 
+              onClick={() => handleClickOpen(params.row)} // Pass the entire product object
+            />
+          </> 
+        );
+      }
+    },
+  ];  
+
+
+  return (
+    <div className='productList'>
+      {loadingSpinner && (
+        <div className="loading-spinner-overlay">
+          <CircularProgress className="loading-spinner"  />
+        </div>
+      )}
+      {!myProducts && <p>No Products...</p>}
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+        >
+        <DialogTitle>{"Confirm Delete"}</DialogTitle>
+        <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+                {selectedProduct && `Are you sure you want to delete "${selectedProduct.title}"?`}
+            </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button  onClick={handleDelete}>Delete</Button>
+        </DialogActions>
+      </Dialog>
+      <DataGrid
+        rows={myProducts}
+        getRowId={row => row._id}
+        columns={columns}
+        disableRowSelectionOnClick
+        initialState={{
+          pagination:
+          {
+            paginationModel: { page: 0, pageSize: 10 },
+          },
+        }}
+        pageSizeOptions={[10, 20]}
+        checkboxSelection
+      />
+      {error && (
+        <Alert severity="error" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
+          {error}
+        </Alert>
+      )}
+      {success && (
+        <Alert severity="success" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
+          {success}
+        </Alert>
+      )}
+      {deleteError && (
+        <Alert severity="error" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
+          {deleteError}
+        </Alert>
+      )}
+    </div> 
+
+  )
+}
+
+export default ProductList;

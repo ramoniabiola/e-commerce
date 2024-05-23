@@ -1,0 +1,177 @@
+.newProduct {
+    flex: 4;
+    padding: 20px;
+}
+
+.addProductForm {
+  margin-top: 10px; 
+}
+
+.addProductItem {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.addProductItemOptions {
+    display: flex;
+
+}
+.addProductItem > label {
+    color: gray;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.addProductItem > input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 2px solid rgb(181, 176, 176)
+}
+
+
+.addProductItem > textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid rgb(175, 168, 168);
+}
+
+.addProductItem > select {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.addProductItem.check {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.addProductItem .check>label {
+    padding-right: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: gray;
+}
+
+
+
+
+.addProductButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding: 6px 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ed4f4f;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
