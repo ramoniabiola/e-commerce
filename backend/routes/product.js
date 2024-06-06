@@ -122,4 +122,28 @@ router.get("/", async (req, res) => {
 
 
 
+// FIND PRODUCTS THROUGH A SEARCH QUERY
+router.get('/search', async (req, res) => {
+    const { query } = req.query;
+    try {
+        const products = await Product.find({
+            $text: { $search: query }
+        });
+
+        // If product not found, return 404 Not Found
+        if (products.length === 0) {
+          return res.status(404).json({ error: "Product not found..." });
+        }
+
+        res.status(200).json(products);
+    } catch (err) {
+         // Handle unexpected errors
+        console.error('Error fetching products:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+
+
 module.exports = router;    

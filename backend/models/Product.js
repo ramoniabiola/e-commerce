@@ -15,4 +15,8 @@ const ProductSchema = new mongoose.Schema(
 );
 
 
+// Create a text index on the title field
+ProductSchema.index({ title: 'text' });
+
+
 module.exports =  mongoose.model("Product", ProductSchema);
