@@ -27,8 +27,8 @@
 .newUserFormItem>input {
     height: 20px;
     padding: 10px;
-    border: 1px solid rgb(168, 159, 159);
-    border-radius: 6px;
+    border: 2px solid rgb(189, 184, 184);
+    border-radius: 8px;
 }
 
 
