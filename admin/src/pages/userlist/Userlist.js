@@ -24,7 +24,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const Userlist = () => {
     const dispatch = useDispatch();
-    const myUsers = useSelector((state) => state.user.user.users);
+    const myUsers = useSelector((state) => state.user.user.users) || [];
     const { getUsers, error } = useGetUsers();
     const [open, setOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null); // Initialize with null or appropriate initial value
@@ -47,7 +47,7 @@ const Userlist = () => {
         };
  
         fetchUsers();
-    }, []);
+    }, [dispatch, getUsers]);
 
 
     const handleDelete = () => {
