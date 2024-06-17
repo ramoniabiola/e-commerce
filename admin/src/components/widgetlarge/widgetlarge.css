@@ -8,7 +8,6 @@
 .widgetLargeTitle {
     font-size: 20px;
     font-weight: 700;
-    color: rgb(76, 74, 74);
 }
 
 .widgetlargeTable {
@@ -26,10 +25,9 @@
     font-weight: 600;
 }
 
-.widgetLargeDate,.widgetLargeAmount {
+.widgetLargeDate, .widgetLargeAmount {
     font-weight: 300;
 }
-
 
 .widgetLargeImage { 
     width: 40px;
@@ -37,7 +35,6 @@
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
-
 }
 
 .widgetLargeButton {
@@ -61,3 +58,18 @@
     color: #2a7ade;
 }
 
+.NoDataContainer,
+.LoadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.widgetLargeStatus {
+    width: 100px;
+}
