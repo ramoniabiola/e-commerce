@@ -69,7 +69,7 @@ const Widgetlarge = () => {
             <tr className="widgetLargeTr">
               <td colSpan="8">
                 <div className='LoadingContainer'>
-                  <CircularProgress style={{ color: "#7dd3fc", marginBottom: "12px" }} size={30} />
+                  <CircularProgress style={{ color: "#38bdf8", marginBottom: "12px" }} size={30} />
                   <Typography variant="h6" color="#9ca3af">Loading...</Typography>
                 </div>
               </td>

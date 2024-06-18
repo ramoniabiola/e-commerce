@@ -18,7 +18,7 @@ const User = () => {
   // STATES CONTROLLER
   const location = useLocation();
   const userId = location.pathname.split('/')[2];
-  const user = useSelector((state) => state.user.user.users.find((user) => user._id === userId));
+  const user = useSelector((state) => state.user?.user?.users.find((user) => user._id === userId));
   const [inputs, setInputs] = useState({
     username: '',
     full_name: '',
