@@ -10,8 +10,9 @@ import { getUserStart, getUserSuccess, getUserFailure,
     addUserStart,addUserSuccess,addUserFailure,
     updateUserStart, updateUserSuccess, updateUserFailure
 } from "./userRedux";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -72,10 +73,15 @@ export const useLogin = () => {
 
 export const useGetUsers = () => {
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
 
 
-    const getUsers = async (dispatch) => {
+
+    const getUsers = useCallback(async () => {
         dispatch(getUserStart());
+        setIsLoading(true)
+        setError(null)
  
  
         try {
@@ -89,12 +95,14 @@ export const useGetUsers = () => {
             }
         } catch (error) {
            // If there's an error, set the error state to display on the webpage
-           setError(error.response.data.error); // Assuming the error message is in response.data.error
+           setError("No data..."); 
            dispatch(getUserFailure(error.response.data.error))
-        }      
-    }
+        } finally {
+             setIsLoading(false);
+        }
+    }, [dispatch]);
 
-    return { getUsers, error };
+    return { getUsers, error, isLoading };
 }
 
 
@@ -225,10 +233,14 @@ export const useAddUser = () => {
 
 export const useGetProducts = () => {
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
 
 
-    const getProducts = async (dispatch) => {
+    const getProducts = useCallback(async () => {
         dispatch(getProductStart());
+        setIsLoading(true)
+        setError(null)
  
  
         try {
@@ -242,12 +254,14 @@ export const useGetProducts = () => {
            }
         } catch (error) {
            // If there's an error, set the error state to display on the webpage
-           setError(error.response.data.error); // Assuming the error message is in response.data.error
+           setError("No data..."); 
            dispatch(getProductFailure(error.response.data.error))
-        }      
-    }
+        } finally {
+            setIsLoading(false)
+        }
+    }, [dispatch])
 
-    return { getProducts, error };
+    return { getProducts, error, isLoading };
 }
 
 

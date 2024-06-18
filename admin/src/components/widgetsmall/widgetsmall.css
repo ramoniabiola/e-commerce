@@ -65,6 +65,10 @@
 
 }
 
+.widgetSmallButton:hover {
+    background-color: #d12a2a;
+}
+
 .widgetSmallIcon {
     font-size: 16px !important;
     margin-right: 5px;

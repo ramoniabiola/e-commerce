@@ -6,7 +6,8 @@ import { DeleteOutline } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useDeleteProduct, useGetProducts } from '../../redux/apiCalls';
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert, CircularProgress, Box,Typography  } from "@mui/material";
+import { PostAdd } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -14,6 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+
 
 
 
@@ -27,7 +29,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const ProductList = () => {
   const dispatch = useDispatch();
   const myProducts = useSelector((state) => state.product.products);
-  const { getProducts, error } = useGetProducts();
+  const { getProducts, error, isLoading } = useGetProducts();
   const [open, setOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null); // Initialize with null or appropriate initial value
   const { deleteProduct, deleteError, success, loadingSpinner } = useDeleteProduct();
@@ -46,12 +48,9 @@ const ProductList = () => {
 
   
   useEffect(() => {
-    const fetchProducts = async () => {
-      await getProducts(dispatch);
-    };
-  
-    fetchProducts();
-  }, []);
+    getProducts();
+    
+  }, [getProducts]);
 
 
   
@@ -103,58 +102,83 @@ const ProductList = () => {
 
   return (
     <div className='productList'>
-      {loadingSpinner && (
-        <div className="loading-spinner-overlay">
-          <CircularProgress className="loading-spinner"  />
-        </div>
-      )}
-      {!myProducts && <p>No Products...</p>}
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
+      {isLoading && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="80vh"
+          flexDirection="column"
+          marginBottom="12px"
         >
-        <DialogTitle>{"Confirm Delete"}</DialogTitle>
-        <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-                {selectedProduct && `Are you sure you want to delete "${selectedProduct.title}"?`}
-            </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button  onClick={handleDelete}>Delete</Button>
-        </DialogActions>
-      </Dialog>
-      <DataGrid
-        rows={myProducts}
-        getRowId={row => row._id}
-        columns={columns}
-        disableRowSelectionOnClick
-        initialState={{
-          pagination:
-          {
-            paginationModel: { page: 0, pageSize: 10 },
-          },
-        }}
-        pageSizeOptions={[10, 20]}
-        checkboxSelection
-      />
+          <CircularProgress  style={{ color: "#38bdf8", marginBottom: "14px" }} size={34} />
+          <Typography variant="h6" color="#9ca3af">Loading...</Typography>
+        </Box>
+      )}
       {error && (
-        <Alert severity="error" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
-          {error}
-        </Alert>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="80vh"
+          flexDirection="column"
+          marginBottom="8px"
+        >
+          <PostAdd style={{ fontSize: 90, marginBottom: "10px", color: "#9ca3af" }} />
+          <Typography variant="h5" color="#9ca3af">{error}</Typography>
+        </Box>
       )}
-      {success && (
-        <Alert severity="success" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
-          {success}
-        </Alert>
-      )}
-      {deleteError && (
-        <Alert severity="error" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
-          {deleteError}
-        </Alert>
+      {!isLoading && !error && (
+        <>
+          {loadingSpinner && (
+            <div className="loading-spinner-overlay">
+              <CircularProgress className="loading-spinner"  />
+            </div>
+          )}
+          {!myProducts && <p>No Products...</p>}
+          <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+            >
+            <DialogTitle>{"Confirm Delete"}</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                    {selectedProduct && `Are you sure you want to delete "${selectedProduct.title}"?`}
+                </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button  onClick={handleDelete}>Delete</Button>
+            </DialogActions>
+          </Dialog>
+          <DataGrid
+            rows={myProducts}
+            getRowId={row => row._id}
+            columns={columns}
+            disableRowSelectionOnClick
+            initialState={{
+              pagination:
+              {
+                paginationModel: { page: 0, pageSize: 10 },
+              },
+            }}
+            pageSizeOptions={[10, 20]}
+            checkboxSelection
+          />
+          {success && (
+            <Alert severity="success" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
+              {success}
+            </Alert>
+          )}
+          {deleteError && (
+            <Alert severity="error" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
+              {deleteError}
+            </Alert>
+          )}
+        </>
       )}
     </div> 
 
