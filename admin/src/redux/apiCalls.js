@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, logout } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethod";
 import { getProductFailure, getProductStart, getProductSuccess,
     deleteProductFailure, deleteProductStart, deleteProductSuccess, 
@@ -55,13 +55,23 @@ export const useLogin = () => {
 
 
 
+// "Logout" CUSTOMIZED HOOK 
+export const useLogout = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-// "Logout" CUSTOMIZED HOOK
+    const handleLogout = async () => {
+        // Dispatch logout and clear cart-store action 
+        dispatch(logout());
+        navigate('/login');
 
+        // Clear local storage
+        localStorage.removeItem('user'); // Clear user data
 
+    };
 
-
-
+    return { handleLogout };
+};
 
 
 

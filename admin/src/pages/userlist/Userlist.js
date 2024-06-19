@@ -39,11 +39,13 @@ const Userlist = () => {
         setOpen(false);
     };
 
+
     useEffect(() => {
         getUsers();
      
     }, [getUsers]);
 
+    
     const handleDelete = () => {
         if (selectedUser) {
             deleteUser(selectedUser._id, dispatch);

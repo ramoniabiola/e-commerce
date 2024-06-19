@@ -52,7 +52,7 @@
 .topbarIconContainer {
     position: relative;
     cursor: pointer;
-    margin-right: 12px;
+    margin-right: 16px;
     margin-top: 8px;
     color: #555;
    
@@ -86,4 +86,39 @@
     object-fit: cover;
 
 
+}
+
+
+.dropdown {
+    position: relative;
+}
+
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1000;
+    transition: ease;
+    padding-bottom: 12px;
+    padding-right: 24px;
+    padding-top: 8px;
+    
+}
+  
+.dropdownItem {
+    padding: 8px 20px;
+    color: #333;
+    display: block;
+}
+  
+.dropdownItem:hover {
+    background-color: #f7f2f2;
+    width: 90%;
+    cursor: pointer;
 }
