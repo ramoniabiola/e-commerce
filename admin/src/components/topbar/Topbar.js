@@ -13,15 +13,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import { useSelector} from "react-redux"
 
 
 
+  
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
-
-
-
 
 
 
@@ -29,6 +28,7 @@ const Topbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { handleLogout } = useLogout();
   const [open, setOpen] = useState(false);
+  const currentUser = useSelector((state) => state.user?.user?.currentUser);
 
   
   const handleDropdownToggle = () => {
@@ -75,18 +75,18 @@ const Topbar = () => {
           <div className="topbarIconContainer">
             <SettingsIcon />
           </div>  
-          <img src="https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0" alt="" className="topAvatar" />
+            <img src={currentUser.img || "https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0"} alt="" className="topAvatar" />
           <div className="dropdown" onClick={handleDropdownToggle}>
             {!dropdownOpen ? 
               (<ArrowDropDownRounded style={{ marginTop: "12px", fontSize: "30px"}} />) :
-              (<ArrowDropUpRounded style={{ marginTop: "12px", fontSize: "30px"}} />
+               (<ArrowDropUpRounded style={{ marginTop: "12px", fontSize: "30px"}} />
             )}
             {dropdownOpen && (
               <div className="dropdownMenu">
                 <span  className="dropdownItem">Account</span>
                 <span  className="dropdownItem" onClick={handleClickOpen}>Logout</span>
               </div>
-             )}
+             )} 
          </div>
         </div>
       </div>
