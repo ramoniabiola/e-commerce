@@ -12,6 +12,8 @@
     "@mui/material": "^5.15.4",
     "@mui/x-charts": "^6.19.1",
     "@mui/x-data-grid": "^6.19.2",
+    "@nivo/core": "^0.87.0",
+    "@nivo/line": "^0.87.0",
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -57,13 +59,12 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env", 
-      "@babel/preset-react" 
+      "@babel/preset-env",
+      "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties", 
-      "@babel/plugin-transform-runtime" 
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime"
     ]
-  }  
+  }
 }
-

@@ -74,16 +74,22 @@ const Topbar = () => {
           </div>  
           <div className="topbarIconContainer">
             <SettingsIcon />
-          </div>  
-            <img src={currentUser.img || "https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0"} alt="" className="topAvatar" />
+          </div>
+          <div className="topAvatarContainer">
+            <img
+              src={currentUser.img || "https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0"}
+              alt="" 
+              className="topAvatar"
+            />
+          </div>
           <div className="dropdown" onClick={handleDropdownToggle}>
             {!dropdownOpen ? 
               (<ArrowDropDownRounded style={{ marginTop: "12px", fontSize: "30px"}} />) :
-               (<ArrowDropUpRounded style={{ marginTop: "12px", fontSize: "30px"}} />
+              (<ArrowDropUpRounded style={{ marginTop: "12px", fontSize: "30px"}} />
             )}
             {dropdownOpen && (
               <div className="dropdownMenu">
-                <span  className="dropdownItem">Account</span>
+                <span  className="dropdownItem">{currentUser.username}</span>
                 <span  className="dropdownItem" onClick={handleClickOpen}>Logout</span>
               </div>
              )} 

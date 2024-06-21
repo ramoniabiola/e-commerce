@@ -33,7 +33,7 @@
   justify-content: center;
   flex-direction: column;
   width: 28%;
-  height: 45%;
+  min-height: 45%;
   margin: 120px auto;
   padding: 16px;
   background: white;

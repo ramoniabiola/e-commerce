@@ -17,7 +17,6 @@ const Login = () => {
     await login(dispatch, {username, password});
   }
 
-  console.log(error)
 
   return (
     <div className="login">

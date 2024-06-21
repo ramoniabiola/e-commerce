@@ -61,8 +61,10 @@ export const useLogout = () => {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        // Dispatch logout and clear cart-store action 
+        // Dispatch logout action
         dispatch(logout());
+
+        // navigate to the login page
         navigate('/login');
 
         // Clear local storage
@@ -77,7 +79,7 @@ export const useLogout = () => {
 
 //// USER SECTION -----------------------------------------------------------------
 
-
+ 
 
 // "Get Users" CUSTOMIZED HOOK 
 

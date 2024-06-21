@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
-import "./piechart.css"
+import "./productoverview.css"
 
 
 const data = [
@@ -10,7 +10,7 @@ const data = [
 ];   
 
 
-const Piechart = () => {
+const ProductOverview = () => {
     
   return (
     <div className='pieChart'> 
@@ -19,16 +19,16 @@ const Piechart = () => {
             series={[
                 {
                     data,
-                    cx: 168,
-                    cy: 98,
+                    cx: 174,
+                    cy: 120,
                     highlightScope: { faded: 'global', highlighted: 'item' },
                     faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                 },
             ]}
-            height={220}
+            height={260}
         />
     </div>
   );
 }
 
-export default Piechart;
+export default ProductOverview;
