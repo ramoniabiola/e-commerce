@@ -140,8 +140,8 @@ const Userlist = () => {
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose}>Cancel</Button>
-                            <Button onClick={handleDelete}>Delete</Button>
+                            <Button onClick={handleClose} style={{color: "#e11d48", fontWeight: '600'}}>Cancel</Button>
+                            <Button onClick={handleDelete} style={{color: "#e11d48", fontWeight: '600'}}>Delete</Button>
                         </DialogActions>
                     </Dialog>
                     <DataGrid

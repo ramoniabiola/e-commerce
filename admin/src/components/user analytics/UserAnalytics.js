@@ -4,6 +4,8 @@ import { PostAdd } from '@mui/icons-material';
 import { ResponsiveLine } from '@nivo/line';
 import './useranalytics.css';
 
+
+
 const UserAnalytics = ({ title, data, isLoading, error }) => {
 
     const formattedData = [
@@ -17,7 +19,6 @@ const UserAnalytics = ({ title, data, isLoading, error }) => {
         }
     ];
 
-    console.log(formattedData)
 
     return (
         <div className='chart'>
@@ -69,7 +70,7 @@ const UserAnalytics = ({ title, data, isLoading, error }) => {
                         id: 'gradientC',
                         type: 'linearGradient',
                         colors: [  
-                            { offset: 0, color: '#f87171' }, // Solid color at the top
+                            { offset: 0, color: '#dc2626' }, // Solid color at the top
                             { offset: 75, color: '#fef2f2' }  // Faded color at the bottom    
                         ],
                     },]}
@@ -78,14 +79,14 @@ const UserAnalytics = ({ title, data, isLoading, error }) => {
                     ]}
                     animate={true}
                     enableGridY={false}
-                    colors={['#f87171']} // Line color
+                    colors={['#dc2626']} // Line color
                     colorBy="id"
                     lineWidth={3}
                       pointSymbol={({ datum: { x, y, color } }) => (
                         <circle
                             cx={0}
                             cy={0}
-                            r={4    }
+                            r={4}
                             fill={color}
                             stroke={color}
                             strokeWidth={2}
@@ -94,7 +95,7 @@ const UserAnalytics = ({ title, data, isLoading, error }) => {
                     enableDots={false}
                     enableDotLabel={true}
                     dotSize={14}    
-                    dotColor="#f87171" // Point color
+                    dotColor="#dc2626" // Point color
                     dotBorderWidth={2}
                     dotBorderColor="#991b1b"
                     dotLabel="y"
@@ -134,7 +135,7 @@ const UserAnalytics = ({ title, data, isLoading, error }) => {
                             itemsSpacing: 0,
                             itemDirection: 'left-to-right',
                             itemWidth: 80,
-                            itemHeight: 20,
+                            itemHeight: 40,
                             itemOpacity: 0.75,
                             symbolSize: 12,
                             symbolShape: 'circle',
