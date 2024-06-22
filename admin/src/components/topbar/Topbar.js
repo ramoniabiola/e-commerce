@@ -77,7 +77,7 @@ const Topbar = () => {
           </div>
           <div className="topAvatarContainer">
             <img
-              src={currentUser.img || "https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0"}
+              src={currentUser.img ? currentUser.img : "https://th.bing.com/th/id/R.064a17bab0f7d2a0f8d50e290cabc300?rik=tvO3cskOSIoniQ&pid=ImgRaw&r=0"}
               alt="" 
               className="topAvatar"
             />
@@ -109,15 +109,15 @@ const Topbar = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
         >
-        <DialogTitle style={{color: "#64748b", fontSize: "18px"}}>{"EXIT CONFIRMATION"}</DialogTitle>
+        <DialogTitle style={{color: "#991b1b", fontSize: "18px"}}>{"EXIT CONFIRMATION"}</DialogTitle>
         <DialogContent> 
-            <DialogContentText id="alert-dialog-slide-description"  style={{color: "#1e293b"}}>
+            <DialogContentText id="alert-dialog-slide-description"  style={{color: "#0c0a09"}}>
                 {"Are you sure you want to Log out?"}
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}  style={{color: "#e11d48", fontWeight: '600'}}>CANCEL</Button>
-          <Button  onClick={handleClick}  style={{color: "#e11d48", fontWeight: '600'}}>LOG OUT</Button>
+          <Button onClick={handleClose}  style={{color: "#9ca3af", fontWeight: '600'}}>CANCEL</Button>
+          <Button  onClick={handleClick}  style={{color: "#e11d48 ", fontWeight: '600'}}>LOG OUT</Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -142,14 +142,14 @@ const ProductList = () => {
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
             >
-            <DialogTitle>{"Confirm Delete"}</DialogTitle>
+            <DialogTitle style={{color: "#991b1b", fontSize: "18px"}}>{"Confirm Delete"}</DialogTitle>
             <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
+                <DialogContentText id="alert-dialog-slide-description"  style={{color: "#0c0a09"}}>
                     {selectedProduct && `Are you sure you want to delete "${selectedProduct.title}"?`}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose} style={{color: "#e11d48", fontWeight: '600'}}>Cancel</Button>
+              <Button onClick={handleClose} style={{color: "#9ca3af", fontWeight: '600'}}>Cancel</Button>
               <Button  onClick={handleDelete} style={{color: "#e11d48", fontWeight: '600'}}>Delete</Button>
             </DialogActions>
           </Dialog>
