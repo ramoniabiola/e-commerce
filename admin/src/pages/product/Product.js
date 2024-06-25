@@ -15,7 +15,6 @@ const xLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 
 const Product = () => {
 
-  // STATES CONTROLLER
   const location = useLocation();
   const productId = location.pathname.split('/')[2];
   const product = useSelector((state) => state.product.products.find((product) => product._id === productId));
@@ -132,7 +131,16 @@ const Product = () => {
           <LineChart
             width={500}
             height={170}
-            series={[{ data: uData, label: 'Sales Revenue', area: true, showMark: false, color: "#14b8a6" }]}
+            series={[
+              { 
+                data: uData, 
+                label: 'Sales Revenue', 
+                area: true, 
+                showMark: false, 
+                color: "#14b8a6" 
+
+              }
+            ]}
             xAxis={[{ scaleType: 'point', data: xLabels }]}
             sx={{
               '.MuiLineElement-root': 
