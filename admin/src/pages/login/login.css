@@ -33,7 +33,7 @@
   justify-content: center;
   flex-direction: column;
   width: 28%;
-  min-height: 45%;
+  min-height: 50%;
   margin: 120px auto;
   padding: 16px;
   background: rgb(255, 255, 255);
@@ -91,7 +91,7 @@
 .loginForgot {
   display: block;
   margin-top: 20px;
-  font-size: small;
+  font-size: 15px;
 }
 
 .loginForgot a {

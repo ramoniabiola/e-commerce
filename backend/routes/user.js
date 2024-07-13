@@ -6,7 +6,7 @@ const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifyTo
 
 
 // UPDATE USER
-router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+router.put("/:id",  async (req, res) => {
     // Encrypt password if it's being updated
     if (req.body.password) {
         req.body.password =  await bcrypt.hash(req.body.password, 10); // Salt rounds = 10
