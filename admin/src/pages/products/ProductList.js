@@ -15,6 +15,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import Footer from '../../components/footer/Footer';
 
 
 
@@ -177,6 +178,9 @@ const ProductList = () => {
               {deleteError}
             </Alert>
           )}
+          <div className="fottrContainer">
+            <Footer />
+          </div> 
         </>
       )}
     </div> 

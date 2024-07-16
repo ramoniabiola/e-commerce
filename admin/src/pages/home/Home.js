@@ -6,6 +6,7 @@ import Widgetlarge from '../../components/widgetlarge/Widgetlarge';
 import { userRequest } from '../../requestMethod';
 import UserAnalytics from '../../components/user analytics/UserAnalytics';
 import ProductOverview from '../../components/product overview/ProductOverview';
+import Footer from '../../components/footer/Footer';
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
@@ -53,6 +54,9 @@ const Home = () => {
       <div className="homeWidgets">
         <Widgetsmall />
         <Widgetlarge />
+      </div>
+      <div className="fotrContainer">
+        <Footer />
       </div>
     </div>
   );

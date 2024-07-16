@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { CircularProgress } from '@mui/material';
 import './login.css';
 import { useLogin } from '../../redux/apiCalls';
+import Footer from '../../components/footer/Footer';
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -49,6 +50,9 @@ const Login = () => {
         {error && <p className='loginError'>{error}</p>} {/* Display the error if it exists */}
         <span className='loginForgot'>forgot password ?<a href="https://localhost:3000/">click here</a></span>
       </form>
+      <div className="ftrContainer">
+        <Footer />
+      </div>
     </div>
   );
 }

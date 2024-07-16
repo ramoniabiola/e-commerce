@@ -10,6 +10,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../firebase";
 import { useUpdateUser } from '../../redux/apiCalls';
 import { Alert, CircularProgress } from "@mui/material";
+import Footer from "../../components/footer/Footer";
 
 
 
@@ -236,6 +237,9 @@ const User = () => {
           </form>
         </div>
       </div>
+      <div className="fottContainer">
+        <Footer />
+      </div> 
       {success && (
         <Alert severity="success" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
           Update successful!

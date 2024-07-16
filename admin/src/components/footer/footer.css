@@ -1,0 +1,48 @@
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 52px;
+    margin-bottom: 16px;   
+   
+}
+
+.copyright{
+    margin-right: 24px;   
+}
+
+.copyrightInfo {
+    font-size: 16px;
+    font-weight: 500;   
+    color: #a3a3a3;
+}
+
+
+.otherInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.otherInforLog {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color:  #777777;
+    margin-right: 12px;
+}
+
+.otherInforLog:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color:  #777777;
+    margin-right: 12px;
+}

@@ -5,6 +5,7 @@ import app from "../../firebase";
 import { useAddProduct } from "../../redux/apiCalls.js";
 import { useDispatch } from "react-redux";
 import { Alert, CircularProgress } from "@mui/material";
+import Footer from "../../components/footer/Footer.js";
 
 
 
@@ -157,6 +158,9 @@ const Newproduct = () => {
           Create
         </button>
       </form>
+      <div className="fottrrrContainer">
+        <Footer />
+      </div> 
       {success && (
         <Alert severity="success" sx={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 9999 }}>
           Product created successfully...
