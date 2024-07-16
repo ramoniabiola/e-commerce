@@ -50,7 +50,7 @@ const Login = () => {
         {error && <p className='loginError'>{error}</p>} {/* Display the error if it exists */}
         <span className='loginForgot'>forgot password ?<a href="https://localhost:3000/">click here</a></span>
       </form>
-      <div className="ftrContainer">
+      <div className="loginFooter">
         <Footer />
       </div>
     </div>

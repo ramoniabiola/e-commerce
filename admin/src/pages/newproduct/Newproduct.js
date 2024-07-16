@@ -158,7 +158,7 @@ const Newproduct = () => {
           Create
         </button>
       </form>
-      <div className="fottrrrContainer">
+      <div className="newProductFooter">
         <Footer />
       </div> 
       {success && (

@@ -165,7 +165,7 @@ const Newuser = () => {
           </div> 
          <button className="newUserButton" onClick={handleClick}>Create User</button>
       </form>
-      <div className="fotttrrContainer">
+      <div className="newUserFooter">
         <Footer />
       </div> 
       {success && (

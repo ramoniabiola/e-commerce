@@ -237,7 +237,7 @@ const Product = () => {
             </div>
           </form>
        </div>
-       <div className="fottrrContainer">
+       <div className="productFooter">
           <Footer />
        </div> 
        {success && (

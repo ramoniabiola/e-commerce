@@ -55,7 +55,7 @@ const Home = () => {
         <Widgetsmall />
         <Widgetlarge />
       </div>
-      <div className="fotrContainer">
+      <div className="homeFooter">
         <Footer />
       </div>
     </div>

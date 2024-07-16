@@ -237,7 +237,7 @@ const User = () => {
           </form>
         </div>
       </div>
-      <div className="fottContainer">
+      <div className="userFooter">
         <Footer />
       </div> 
       {success && (

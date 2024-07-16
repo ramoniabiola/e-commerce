@@ -170,7 +170,7 @@ const Userlist = () => {
                             {deleteError}
                         </Alert>
                     )}
-                    <div className="footrContainer">
+                    <div className="userListFooter">
                         <Footer />
                     </div>
                 </>

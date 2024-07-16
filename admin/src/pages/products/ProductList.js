@@ -179,7 +179,7 @@ const ProductList = () => {
               {deleteError}
             </Alert>
           )}
-          <div className="fottrContainer">
+          <div className="productListFooter">
             <Footer />
           </div> 
         </>
