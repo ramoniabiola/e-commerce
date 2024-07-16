@@ -150,6 +150,7 @@ const Userlist = () => {
                         getRowId={row => row._id}
                         columns={columns}
                         disableRowSelectionOnClick
+                        style={{ height: '100vh' }} 
                         initialState={{
                             pagination:
                             {

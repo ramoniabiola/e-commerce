@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="otherInfo">
             <span className="otherInforLog">Help Center</span>
             <hr />
-            <span className="otherInforLog">Brands</span>
+            <span className="otherInforLog">Operations</span>
             <hr />
             <span className="otherInforLog">Terms</span>
             <hr />
