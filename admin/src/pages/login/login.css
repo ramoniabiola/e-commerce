@@ -98,11 +98,13 @@
 .loginForgot a {
   text-decoration: none;
   color: #d61c1c;
+  margin-left: 4px;
 }
 
 .loginForgot a:hover {
   text-decoration: underline;
   color: #d61c1c;
+  
 }
 
 .loginError {

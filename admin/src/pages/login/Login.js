@@ -48,7 +48,7 @@ const Login = () => {
         {loadingSpinner ? <CircularProgress size={20} style={{ color: 'white'}} /> : "LOGIN"}
         </button>
         {error && <p className='loginError'>{error}</p>} {/* Display the error if it exists */}
-        <span className='loginForgot'>forgot password ?<a href="https://localhost:3000/">click here</a></span>
+        <span className='loginForgot'>forgot password?<a href="https://localhost:3000/">click here</a></span>
       </form>
       <div className="loginFooter">
         <Footer />
